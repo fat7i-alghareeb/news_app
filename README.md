@@ -12,6 +12,12 @@ News App developed with Flutter and API from News API
     <img src="screenShots/image1.jpeg" alt="Task Interface" style="width:40%;">
 </div>
 
+### News Details 
+
+<div style="display:flex;">
+    <img src="screenShots/image2.jpeg" alt="Task Interface" style="width:40%;">
+</div>
+
 ### Main news source launcher 
 - go to the main source in the image widget
 
