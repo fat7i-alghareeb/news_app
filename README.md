@@ -9,19 +9,19 @@ News App developed with Flutter and API from News API
 
 ### News App Interface
 <div style="display:flex;">
-    <img src="screenShots/image1.jpeg" alt="Task Interface" style="width:70%;">
+    <img src="screenShots/image1.jpeg" alt="Task Interface" style="width:40%;">
 </div>
 
 ### Main news source launcher 
 - go to the main source in the image widget
 
 <div style="display:flex;">
-    <img src="screenShots/image3.jpeg" alt="Heat Map" style="width:30%;">
+    <img src="screenShots/image3.jpeg" alt="Heat Map" style="width:40%;">
 </div>
 
 ### Shimmer Effect 
 <div style="display:flex;">
-    <img src="screenShots/image4.jpeg" alt="Heat Map" style="width:30%;">
+    <img src="screenShots/image4.jpeg" alt="Heat Map" style="width:40%;">
 </div>
 
 ## Technology
