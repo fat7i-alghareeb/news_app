@@ -31,11 +31,14 @@ News App developed with Flutter and API from News API
 </div>
 
 ## Technology
-1. http<br />
+
+1. Blok<br />
+State management library that simplifies project state control and enhances readability.
+2. http<br />
 This package contains a set of high-level functions and classes that make it easy to consume HTTP resources.
-2. MVVM Architecture<br />
+3. MVVM Architecture<br />
 Model-View-ViewModel (MVVM) is a software design pattern that is structured to separate program logic and user interface controls.
-3. Url Launcher<br />
+4. Url Launcher<br />
 Flutter plugin for launching a URL in the mobile platform.
-4. card_swiper<br />
+5. card_swiper<br />
 Swiper/Carousel for flutter, with multiple layouts, infinite loop.
