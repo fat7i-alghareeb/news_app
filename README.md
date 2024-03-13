@@ -1,17 +1,35 @@
 # news_app
+News App developed with Flutter and API from News API
+## Features
+- Instant News
+- News for all categories
+- Ability to go to the main news source
+- Support for Shimmer effect instead of ProgressIndicator
+## Screenshots
 
-A new Flutter project.
+### News App Interface
+<div style="display:flex;">
+    <img src="screenShots/image1.jpeg" alt="Task Interface" style="width:70%;">
+</div>
 
-## Getting Started
+### Main news source launcher 
+- go to the main source in the image widget
 
-This project is a starting point for a Flutter application.
+<div style="display:flex;">
+    <img src="screenShots/image3.jpeg" alt="Heat Map" style="width:30%;">
+</div>
 
-A few resources to get you started if this is your first Flutter project:
+### Shimmer Effect 
+<div style="display:flex;">
+    <img src="screenShots/image4.jpeg" alt="Heat Map" style="width:30%;">
+</div>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-"# news_app" 
+## Technology
+1. http<br />
+This package contains a set of high-level functions and classes that make it easy to consume HTTP resources.
+2. MVVM Architecture<br />
+Model-View-ViewModel (MVVM) is a software design pattern that is structured to separate program logic and user interface controls.
+3. Url Launcher<br />
+Flutter plugin for launching a URL in the mobile platform.
+4. card_swiper<br />
+Swiper/Carousel for flutter, with multiple layouts, infinite loop.
