@@ -1,11 +1,11 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../constants.dart';
+import '../../../../../constants.dart';
 import 'news_state.dart';
-import '../../data/models/news.dart';
-import '../../data/repo/news_repo.dart';
+import '../../../data/models/news.dart';
+import '../../../data/repo/news_repo_impl.dart';
 
 class NewsCubit extends Cubit<NewsState> {
-  final NewsRepo newsRepo;
+  final NewsRepoImp newsRepo;
   NewsCubit(this.newsRepo) : super(NewsInitial());
   List<News> _news = [];
   List<News> _latestNews = [];

@@ -1,4 +1,4 @@
-import '../../data/models/news.dart';
+import '../../../data/models/news.dart';
 
 sealed class NewsState {}
 

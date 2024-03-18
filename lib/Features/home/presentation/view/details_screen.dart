@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../constants.dart';
-import '../widgets/cached_image.dart';
+import '../../../../constants.dart';
+import 'widgets/cached_image.dart';
 import '../../data/models/news.dart';
-import '../widgets/source_launcher.dart';
+import 'widgets/source_launcher.dart';
 
 class DetailsScreen extends StatelessWidget {
   final News news;

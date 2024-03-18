@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'router/app_router.dart';
-import 'themes.dart';
+import 'utils/router/app_router.dart';
+import 'utils/themes.dart';
 
 void main() async {
   runApp(MyApp());

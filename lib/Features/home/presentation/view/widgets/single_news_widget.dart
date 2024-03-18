@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../data/models/news.dart';
+import '../../../data/models/news.dart';
 import 'cached_image.dart';
 
-import '../../constants.dart';
+import '../../../../../constants.dart';
 
 class NewsWidget extends StatelessWidget {
   final News news;

@@ -1,6 +1,6 @@
 import 'package:intl/intl.dart';
 
-import 'data/models/news.dart';
+import 'Features/home/data/models/news.dart';
 
 const String mainNavigator = "/";
 const String detailsScreen = "/detailsScreen";

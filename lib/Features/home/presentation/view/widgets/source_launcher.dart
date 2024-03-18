@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'cached_image.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../data/models/news.dart';
+import '../../../data/models/news.dart';
 
 class SourceLauncher extends StatelessWidget {
   const SourceLauncher({

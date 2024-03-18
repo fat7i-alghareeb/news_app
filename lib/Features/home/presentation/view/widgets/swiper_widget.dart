@@ -2,8 +2,8 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'cached_image.dart';
 
-import '../../constants.dart';
-import '../../data/models/news.dart';
+import '../../../../../constants.dart';
+import '../../../data/models/news.dart';
 
 class SwiperWidget extends StatelessWidget {
   final List<News> news;

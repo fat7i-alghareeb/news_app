@@ -1,18 +1,19 @@
-import '../models/news.dart';
-import '../services/news_services.dart';
+import 'package:news_app/Features/home/data/repo/news_repo.dart';
 
-class NewsRepo {
+import '../models/news.dart';
+import '../../../../utils/services/news_services.dart';
+
+class NewsRepoImp implements NewsRepo {
   final NewsServices newsServices;
 
-  NewsRepo({required this.newsServices});
+  NewsRepoImp({required this.newsServices});
 
+  @override
   Future<List<News>> fetchNews(String category) async {
     try {
       final news = await newsServices.getAllNews(category);
-      //print(products.map((product) => Product.fromJson(product)).toList());
       return news.map((news) => News.fromJson(news)).toList();
     } catch (e) {
-      print(e.toString());
       return [];
     }
   }

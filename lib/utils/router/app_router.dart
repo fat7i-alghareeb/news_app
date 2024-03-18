@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../presentation/pages/details_screen.dart';
-import '../business_logic/cubit/news_cubit.dart';
-import '../data/models/news.dart';
-import '../data/repo/news_repo.dart';
-import '../data/services/news_services.dart';
+import '../../Features/home/presentation/view/details_screen.dart';
+import '../../Features/home/presentation/manger/cubit/news_cubit.dart';
+import '../../Features/home/data/models/news.dart';
+import '../../Features/home/data/repo/news_repo_impl.dart';
+import '../services/news_services.dart';
 
-import '../constants.dart';
-import '../presentation/pages/navigator.dart';
+import '../../constants.dart';
+import '../../Features/home/presentation/view/navigator.dart';
 
 class AppRouter {
-  late NewsRepo newsRepo;
+  late NewsRepoImp newsRepo;
   late NewsServices newsServices;
   AppRouter() {
     newsServices = NewsServices();
-    newsRepo = NewsRepo(newsServices: newsServices);
+    newsRepo = NewsRepoImp(newsServices: newsServices);
   }
   Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
