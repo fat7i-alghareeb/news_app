@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../../../constants.dart';
+import '../../../../utils/functions/format_date_string.dart';
+import '../../../../utils/text_styles.dart';
 import 'news_screen.dart';
 
 class MainNavigator extends StatefulWidget {
@@ -36,24 +37,11 @@ class _MainNavigatorState extends State<MainNavigator> {
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "News App",
-                  style: TextStyle(
-                    fontSize: 28,
-                    // fontWeight: FontWeight.bold,
-                    fontFamily: "Font2",
-                    color: Colors.pink,
-                  ),
-                ),
+                const Text("News App", style: Styles.textStyle28),
                 Text(
-                  formatDateString(DateTime.now().toString()).substring(0, 12),
-                  style: TextStyle(
-                    color: Colors.grey[600],
-                    fontSize: 14,
-                    fontFamily: "Font1",
-                    fontStyle: FontStyle.italic,
-                  ),
-                )
+                    formatDateString(DateTime.now().toString())
+                        .substring(0, 12),
+                    style: Styles.textStyle14)
               ],
             ),
           ),
@@ -79,17 +67,13 @@ class _MainNavigatorState extends State<MainNavigator> {
                         ),
                       ),
                     ),
-                    body: SizedBox(
+                    body: const SizedBox(
                         height: double.infinity,
                         width: double.infinity,
                         child: Center(
                           child: Text(
                             '"SOON"',
-                            style: TextStyle(
-                              fontFamily: "font2",
-                              fontSize: 30,
-                              color: Colors.grey[350],
-                            ),
+                            style: Styles.textStyle28,
                           ),
                         )),
                   );

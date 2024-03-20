@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../../utils/text_styles.dart';
 import 'cached_image.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -45,15 +46,8 @@ class SourceLauncher extends StatelessWidget {
                 width: double.infinity,
               ),
             ),
-            const Text(
-              "News Source",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-                fontSize: 28,
-                fontFamily: "font2",
-              ),
-            ),
+            Text("News Source",
+                style: Styles.textStyle28.copyWith(color: Colors.grey)),
           ],
         ),
       ),

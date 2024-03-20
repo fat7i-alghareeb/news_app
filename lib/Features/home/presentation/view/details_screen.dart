@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../constants.dart';
+import '../../../../utils/text_styles.dart';
+import '../../../../utils/functions/format_date_string.dart';
 import 'widgets/cached_image.dart';
 import '../../data/models/news.dart';
 import 'widgets/source_launcher.dart';
@@ -26,7 +27,7 @@ class DetailsScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.fromLTRB(0.0, 340.0, 0.0, 0.0),
               child: SizedBox(
-                height: MediaQuery.of(context).size.height * 1.59,
+                height: MediaQuery.of(context).size.height * 1.75,
                 width: MediaQuery.of(context).size.width,
                 child: Material(
                   color: Theme.of(context).colorScheme.primary,
@@ -37,13 +38,7 @@ class DetailsScreen extends StatelessWidget {
                       Padding(
                         padding:
                             const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0),
-                        child: Text(
-                          news.title,
-                          style: const TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                        child: Text(news.title, style: Styles.textStyle30),
                       ),
                       Chip(
                         side: const BorderSide(
@@ -53,33 +48,19 @@ class DetailsScreen extends StatelessWidget {
                         labelStyle: const TextStyle(
                           color: Colors.white,
                         ),
-                        label: Text(
-                          formatDateString(news.publishedAt),
-                          style: const TextStyle(
-                            fontSize: 20.0,
-                            fontFamily: "font2",
-                          ),
-                        ),
+                        label: Text(formatDateString(news.publishedAt),
+                            style: Styles.textStyle20),
                       ),
                       Container(
                         alignment: Alignment.bottomLeft,
                         padding: const EdgeInsets.only(left: 20, right: 20),
-                        child: Text(
-                          news.description,
-                          style: const TextStyle(
-                            fontSize: 25.0,
-                          ),
-                        ),
+                        child:
+                            Text(news.description, style: Styles.textStyle25),
                       ),
                       Container(
                         alignment: Alignment.bottomLeft,
                         padding: const EdgeInsets.only(left: 20, right: 20),
-                        child: Text(
-                          news.content,
-                          style: const TextStyle(
-                            fontSize: 25,
-                          ),
-                        ),
+                        child: Text(news.content, style: Styles.textStyle25),
                       ),
                       Container(
                         alignment: Alignment.bottomLeft,
@@ -91,16 +72,11 @@ class DetailsScreen extends StatelessWidget {
                             color: Colors.transparent,
                           ),
                           backgroundColor: Colors.pink[300],
-                          labelStyle: const TextStyle(
-                            color: Colors.white,
-                            fontFamily: "font2",
-                          ),
-                          label: Text(
-                            "Author : ${news.author}",
-                            style: const TextStyle(
-                              fontSize: 15,
-                            ),
-                          ),
+                          labelStyle: Styles.textStyle,
+                          label: Text("Author : ${news.author}",
+                              style: Styles.textStyle15.copyWith(
+                                  color:
+                                      Theme.of(context).colorScheme.primary)),
                         ),
                       ),
                       SourceLauncher(news: news),

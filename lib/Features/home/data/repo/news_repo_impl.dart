@@ -1,4 +1,4 @@
-import 'package:news_app/Features/home/data/repo/news_repo.dart';
+import 'news_repo.dart';
 
 import '../models/news.dart';
 import '../../../../utils/services/news_services.dart';

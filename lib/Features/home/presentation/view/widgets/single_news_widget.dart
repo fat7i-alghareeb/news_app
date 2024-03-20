@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import '../../../../../utils/functions/format_date_string.dart';
+import '../../../../../utils/router/router_paths.dart';
+import '../../../../../utils/text_styles.dart';
 import '../../../data/models/news.dart';
 import 'cached_image.dart';
-
-import '../../../../../constants.dart';
 
 class NewsWidget extends StatelessWidget {
   final News news;
@@ -16,8 +17,8 @@ class NewsWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: InkWell(
-        onTap: () =>
-            Navigator.pushNamed(context, detailsScreen, arguments: news),
+        onTap: () => Navigator.pushNamed(context, KRouter.detailsScreen,
+            arguments: news),
         child: SizedBox(
           height: 100,
           width: double.infinity,
@@ -39,48 +40,20 @@ class NewsWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Expanded(
-                      child: Text(
-                        news.title,
-                        maxLines: 3,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          color: Theme.of(context).colorScheme.secondary,
-                        ),
-                      ),
+                      child: Text(news.title,
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
+                          style: Styles.textStyle15.copyWith(
+                              color: Theme.of(context).colorScheme.secondary)),
                     ),
-                    Text(
-                      news.author,
-                      style: const TextStyle(
-                        color: Colors.grey,
-                        fontSize: 12,
-                      ),
-                    ),
+                    Text(news.author, style: Styles.textStyle12),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: <Widget>[
-                        Text(
-                          formatDateString(news.publishedAt),
-                          style: const TextStyle(
-                            color: Colors.grey,
-                            fontSize: 10,
-                          ),
-                        ),
-                        const Text(
-                          ' | ',
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 12,
-                          ),
-                        ),
-                        Text(
-                          news.sourceName,
-                          style: const TextStyle(
-                            color: Colors.grey,
-                            fontSize: 10,
-                          ),
-                        ),
+                        Text(formatDateString(news.publishedAt),
+                            style: Styles.textStyle10),
+                        const Text(' | ', style: Styles.textStyle12),
+                        Text(news.sourceName, style: Styles.textStyle10),
                       ],
                     ),
                   ],

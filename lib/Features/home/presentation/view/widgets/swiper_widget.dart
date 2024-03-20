@@ -1,8 +1,10 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import '../../../../../utils/functions/format_date_string.dart';
+import '../../../../../utils/router/router_paths.dart';
+import '../../../../../utils/text_styles.dart';
 import 'cached_image.dart';
 
-import '../../../../../constants.dart';
 import '../../../data/models/news.dart';
 
 class SwiperWidget extends StatelessWidget {
@@ -41,7 +43,8 @@ class ImageSliderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.pushNamed(context, detailsScreen, arguments: news),
+      onTap: () =>
+          Navigator.pushNamed(context, KRouter.detailsScreen, arguments: news),
       child: Stack(
         children: [
           Container(
@@ -78,51 +81,22 @@ class ImageSliderWidget extends StatelessWidget {
                       borderRadius: BorderRadius.circular(14),
                     ),
                     padding: const EdgeInsets.fromLTRB(8, 3, 8, 7),
-                    child: const Text(
-                      'Latest News',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 12,
-                        //  fontWeight: FontWeight.w500,
-                        fontStyle: FontStyle.italic,
-                      ),
-                    ),
+                    child: Text('Latest News',
+                        style: Styles.textStyle12.copyWith(
+                          color: Colors.white,
+                          fontStyle: FontStyle.italic,
+                        )),
                   ),
                   const SizedBox(height: 3),
-                  Text(
-                    news.title,
-                    maxLines: 2,
-                    style: const TextStyle(
-                      overflow: TextOverflow.ellipsis,
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  Text(news.title, maxLines: 2, style: Styles.textStyle18),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
-                      Text(
-                        formatDateString(news.publishedAt),
-                        style: const TextStyle(
-                          color: Colors.grey,
-                          fontSize: 14,
-                        ),
-                      ),
-                      const Text(
-                        ' | ',
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 18,
-                        ),
-                      ),
-                      Text(
-                        news.sourceName,
-                        style: const TextStyle(
-                          color: Colors.grey,
-                          fontSize: 14,
-                        ),
-                      ),
+                      Text(formatDateString(news.publishedAt),
+                          style: Styles.textStyle15),
+                      Text(' | ',
+                          style: Styles.textStyle15.copyWith(fontSize: 18)),
+                      Text(news.sourceName, style: Styles.textStyle15),
                     ],
                   ),
                 ],

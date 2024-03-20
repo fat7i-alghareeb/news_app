@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../manger/cubit/news_cubit.dart';
-import '../manger/cubit/news_state.dart';
 
 import '../../data/models/news.dart';
+import '../manger/cubit/news_cubit.dart';
+import '../manger/cubit/news_state.dart';
 import 'widgets/shimmer_widgets.dart';
 import 'widgets/single_news_widget.dart';
 import 'widgets/swiper_widget.dart';

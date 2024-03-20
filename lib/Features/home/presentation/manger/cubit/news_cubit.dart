@@ -1,8 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../constants.dart';
-import 'news_state.dart';
+
+import '../../../../../utils/functions/remove_empty_fields.dart';
 import '../../../data/models/news.dart';
 import '../../../data/repo/news_repo_impl.dart';
+import 'news_state.dart';
 
 class NewsCubit extends Cubit<NewsState> {
   final NewsRepoImp newsRepo;
