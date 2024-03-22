@@ -4,29 +4,24 @@ import '../../../../utils/functions/format_date_string.dart';
 import '../../../../utils/text_styles.dart';
 import 'news_screen.dart';
 
-class MainNavigator extends StatefulWidget {
+class MainNavigator extends StatelessWidget {
   const MainNavigator({super.key});
 
-  @override
-  State<MainNavigator> createState() => _MainNavigatorState();
-}
-
-class _MainNavigatorState extends State<MainNavigator> {
   // int _selectedIndex = 0;
-  final List<Widget> _screens = [
-    const NewsScreen(category: "general"),
-    const NewsScreen(category: "health"),
-    const NewsScreen(category: "science"),
-    const NewsScreen(category: "sports"),
-    const NewsScreen(category: "technology"),
-    const NewsScreen(category: "business"),
-    const NewsScreen(category: "entertainment"),
-  ];
 
   @override
   Widget build(BuildContext context) {
+    final List<Widget> screens = [
+      const NewsScreen(category: "general"),
+      const NewsScreen(category: "health"),
+      const NewsScreen(category: "science"),
+      const NewsScreen(category: "sports"),
+      const NewsScreen(category: "technology"),
+      const NewsScreen(category: "business"),
+      const NewsScreen(category: "entertainment"),
+    ];
     return DefaultTabController(
-      length: _screens.length,
+      length: screens.length,
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
@@ -117,7 +112,7 @@ class _MainNavigatorState extends State<MainNavigator> {
         ),
         body: TabBarView(
           physics: const NeverScrollableScrollPhysics(),
-          children: _screens,
+          children: screens,
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/utils/constants.dart';
 import '../../../../../utils/functions/format_date_string.dart';
 import '../../../../../utils/router/router_paths.dart';
 import '../../../../../utils/text_styles.dart';
@@ -26,7 +27,7 @@ class NewsWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
+                borderRadius: BorderRadius.circular(kBorderRadius),
                 child: CachedImage(
                   url: news.image,
                   width: 100,

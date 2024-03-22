@@ -1,5 +1,6 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/utils/constants.dart';
 import '../../../../../utils/functions/format_date_string.dart';
 import '../../../../../utils/router/router_paths.dart';
 import '../../../../../utils/text_styles.dart';
@@ -51,7 +52,7 @@ class ImageSliderWidget extends StatelessWidget {
             width: double.infinity,
             height: 200,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8.0),
+              borderRadius: BorderRadius.circular(kBorderRadius),
             ),
             child: CachedImage(url: news.image, boxFit: BoxFit.cover),
           ),
@@ -59,7 +60,7 @@ class ImageSliderWidget extends StatelessWidget {
             width: double.infinity,
             height: 200,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8.0),
+              borderRadius: BorderRadius.circular(kBorderRadius),
               gradient: LinearGradient(
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
