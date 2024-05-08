@@ -12,16 +12,17 @@ class NewsCubit extends Cubit<NewsState> {
   List<News> _latestNews = [];
   void fetchNews(String category) async {
     emit(NewsLoading());
-    try {
-      final news = await newsRepo.fetchNews(category);
+
+    final results = await newsRepo.fetchNews(category);
+    results.fold((failure) {
+      emit(NewsFailure(message: failure.message));
+    }, (news) {
       final List<News> filteredNews = removeEmptyFields(news);
       _latestNews = filteredNews.sublist(0, 6);
       filteredNews.removeRange(0, 6);
       _news = filteredNews;
       emit(NewsLoaded(news: _news, latestNews: _latestNews));
-    } catch (e) {
-      emit(NewsFailure());
-    }
+    });
   }
 
   get news => _news;

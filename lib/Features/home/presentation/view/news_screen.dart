@@ -30,10 +30,12 @@ class _NewsScreenState extends State<NewsScreen> {
       builder: (context, state) {
         if (state is NewsLoaded) {
           return LoadedView(news: state.news, latestNews: state.latestNews);
-        } else if (state is NewsLoading) {
-          return const MainScreenShimmer();
+        } else if (state is NewsFailure) {
+          return Center(
+            child: Text(state.message),
+          );
         } else {
-          return const Text("error");
+          return const MainScreenShimmer();
         }
       },
     );

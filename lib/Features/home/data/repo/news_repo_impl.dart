@@ -1,3 +1,7 @@
+import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
+
+import '../../../../utils/errors/failures.dart';
 import 'news_repo.dart';
 
 import '../models/news.dart';
@@ -9,12 +13,22 @@ class NewsRepoImp implements NewsRepo {
   NewsRepoImp({required this.newsServices});
 
   @override
-  Future<List<News>> fetchNews(String category) async {
+  Future<Either<Failure, List<News>>> fetchNews(String category) async {
     try {
-      final news = await newsServices.getAllNews(category);
-      return news.map((news) => News.fromJson(news)).toList();
+      final data = await newsServices.getAllNews(category);
+      final news = data.map((news) => News.fromJson(news)).toList();
+      return right(news);
     } catch (e) {
-      return [];
+      if (e is DioException) {
+        return left(
+          ServerFailure.fromDiorError(e),
+        );
+      }
+      return left(
+        ServerFailure(
+          e.toString(),
+        ),
+      );
     }
   }
 }
