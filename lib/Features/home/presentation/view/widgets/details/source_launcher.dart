@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../../../../utils/text_styles.dart';
-import 'cached_image.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../data/models/news.dart';
+import '../../../../../../utils/text_styles.dart';
+import '../../../../data/models/news.dart';
+import '../cached_image.dart';
 
 class SourceLauncher extends StatelessWidget {
   const SourceLauncher({

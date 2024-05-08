@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/utils/constants.dart';
+
+import '../../../../../utils/constants.dart';
 
 class MainScreenShimmer extends StatelessWidget {
   const MainScreenShimmer({

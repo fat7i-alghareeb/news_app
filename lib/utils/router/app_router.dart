@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'router_paths.dart';
-import '../service_locator.dart';
-import '../../Features/home/presentation/view/details_screen.dart';
-import '../../Features/home/presentation/manger/cubit/news_cubit.dart';
+
 import '../../Features/home/data/models/news.dart';
 import '../../Features/home/data/repo/news_repo_impl.dart';
+import '../../Features/home/presentation/manger/cubit/news_cubit.dart';
+import '../../Features/home/presentation/view/details_screen.dart';
 import '../../Features/home/presentation/view/navigator.dart';
+import '../service_locator.dart';
+import 'router_paths.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {

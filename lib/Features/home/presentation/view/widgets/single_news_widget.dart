@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/utils/constants.dart';
+
+import '../../../../../utils/constants.dart';
 import '../../../../../utils/functions/format_date_string.dart';
 import '../../../../../utils/router/router_paths.dart';
 import '../../../../../utils/text_styles.dart';
