@@ -1,18 +1,15 @@
-import 'dart:convert';
-
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 
 class NewsServices {
+  final Dio _dio;
+
   final _baseUrl = 'https://newsapi.org/v2/top-headlines';
-  final apiKey = "d683e15710854dedb49f415209e5dc37";
+  final _apiKey = "d683e15710854dedb49f415209e5dc37";
+  NewsServices(this._dio);
+
   Future<List<dynamic>> getAllNews(String category) async {
-    final uri =
-        Uri.parse('$_baseUrl?category=$category&apiKey=$apiKey&language=en');
-    final response = await http.get(uri);
-    if (response.statusCode == 200) {
-      return json.decode(response.body)['articles'];
-    } else {
-      throw Exception("error in api");
-    }
+    final response = await _dio
+        .get('$_baseUrl?category=$category&apiKey=$_apiKey&language=en');
+    return response.data["articles"];
   }
 }

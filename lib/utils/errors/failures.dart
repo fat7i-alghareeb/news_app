@@ -1,34 +1,59 @@
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 
 abstract class Failure {
-  final String errorMessage;
+  final String message;
 
-  const Failure(this.errorMessage);
+  Failure(this.message);
 }
 
 class ServerFailure extends Failure {
-  ServerFailure(super.errorMessage);
+  ServerFailure(super.message);
 
-  factory ServerFailure.fromHttpError(http.Response response) {
-    switch (response.statusCode) {
-      case 400:
-      case 401:
-      case 403:
-        return ServerFailure(response.reasonPhrase ?? 'Unauthorized');
-      case 404:
-        return ServerFailure('Your request was not found, Please try later!');
-      case 500:
-        return ServerFailure('Internal Server error, Please try later');
-      default:
+  factory ServerFailure.fromDiorError(DioException e) {
+    switch (e.type) {
+      case DioExceptionType.connectionTimeout:
         return ServerFailure(
-            'Oops! There was an error (${response.statusCode}), Please try again');
+            'Connection timed out while contacting the server. Please check your internet connection and try again.');
+
+      case DioExceptionType.sendTimeout:
+        return ServerFailure('Request sending timed out. Please try again.');
+
+      case DioExceptionType.receiveTimeout:
+        return ServerFailure(
+            'Server took too long to respond. Please try again.');
+
+      case DioExceptionType.badCertificate:
+        return ServerFailure(
+            'There was a security issue with the server certificate. Please contact support.');
+
+      case DioExceptionType.cancel:
+        return ServerFailure(
+            'Request to server was canceled. Please try again.');
+
+      case DioExceptionType.connectionError:
+        return ServerFailure(
+            'No internet connection. Please connect to a network and try again.');
+
+      case DioExceptionType.unknown:
+        return ServerFailure(
+            'Oops! Something went wrong unexpectedly. Please try again later or contact support.');
+      case DioExceptionType.badResponse:
+        return ServerFailure.fromResponse(
+            e.response!.statusCode!, e.response!.data);
     }
   }
 
-  factory ServerFailure.fromException(Exception e) {
-    if (e.toString().contains('SocketException')) {
-      return ServerFailure('No Internet Connection');
+  factory ServerFailure.fromResponse(int statusCode, dynamic response) {
+    if (statusCode == 404) {
+      return ServerFailure('The requested resource was not found.');
+    } else if (statusCode == 500) {
+      return ServerFailure(
+          'Internal server error. Please try again later or contact support.');
+    } else if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
+      return ServerFailure(response['error']['message']);
+    } else {
+      return ServerFailure(
+          'An unknown error occurred. Please try again later or contact support.');
     }
-    return ServerFailure('Unexpected Error, Please try again!');
   }
 }
