@@ -9,12 +9,12 @@ void main() async {
   setupServiceLocator();
 
   runApp(MyApp());
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      systemNavigationBarColor: Colors.transparent,
-    ),
-  );
+  // SystemChrome.setSystemUIOverlayStyle(
+  //   const SystemUiOverlayStyle(
+  //     statusBarColor: Colors.transparent,
+  //     systemNavigationBarColor: Colors.transparent,
+  //   ),
+  // );
 }
 
 class MyApp extends StatelessWidget {
