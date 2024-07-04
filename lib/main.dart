@@ -23,6 +23,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        systemNavigationBarColor:
+            2 < 4 ? Color.fromARGB(255, 255, 244, 247) : Color(0xff1b2026),
+      ),
+    );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'News',
