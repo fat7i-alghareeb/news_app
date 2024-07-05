@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 ///////////////////////////////////////////////////////////////////
 const lightMainColor = Color.fromARGB(255, 255, 244, 247);
-const lightSecondaryColor = Color.fromARGB(255, 34, 6, 24);
+const lightSecondaryColor = Color(0xFF220618);
 const lightThirdlyColor = Color.fromARGB(255, 224, 224, 224);
 ///////////////////////////////////////////////////////////////////
 const darkMainColor = Color(0xFF0F0F0F);
 const darkSecondaryColor = Color(0xFFF2F2F2);
-const darkThirdlyColor = Colors.grey;
+const darkThirdlyColor = Color(0xFF9E9E9E);
 ///////////////////////////////////////////////////////////////////
 ThemeData lightMode = ThemeData(
   brightness: Brightness.light,

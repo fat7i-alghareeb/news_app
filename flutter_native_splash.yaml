@@ -1,0 +1,10 @@
+flutter_native_splash:
+  color: "#2E2E2E"
+  color_dark: "#2E2E2E"
+
+  android_12:
+    color: "#2E2E2E"
+    color_dark: "#2E2E2E"
+    icon_background_color: "#2E2E2E"
+    icon_background_color_dark: "#2E2E2E"
+    image: images/newsSplash.png

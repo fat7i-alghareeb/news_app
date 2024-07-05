@@ -31,7 +31,7 @@ abstract class Styles {
     fontStyle: FontStyle.italic,
   );
   static const textStyle28 =
-      TextStyle(fontSize: 28, color: Colors.pink, fontFamily: "font2");
+      TextStyle(fontSize: 28, color: Color(0xFFE91E63), fontFamily: "font2");
   static const textStyle18 = TextStyle(
     fontSize: 18,
     color: Colors.white,

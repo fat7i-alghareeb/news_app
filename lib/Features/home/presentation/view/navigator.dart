@@ -42,7 +42,7 @@ class MainNavigator extends StatelessWidget {
             indicatorPadding: const EdgeInsets.symmetric(vertical: 5),
             indicator: BoxDecoration(
               borderRadius: BorderRadius.circular(25),
-              color: Colors.pink[300],
+              color: const Color(0xFFF06292),
             ),
             unselectedLabelStyle:
                 TextStyle(color: Theme.of(context).colorScheme.secondary),
