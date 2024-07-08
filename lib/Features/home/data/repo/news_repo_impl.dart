@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:news_app/Features/home/data/models/article.dart';
 
 import '../../../../utils/errors/failures.dart';
 import 'news_repo.dart';
 
-import '../models/news.dart';
 import '../../../../utils/services/news_services.dart';
 
 class NewsRepoImp implements NewsRepo {
@@ -13,10 +13,14 @@ class NewsRepoImp implements NewsRepo {
   NewsRepoImp({required this.newsServices});
 
   @override
-  Future<Either<Failure, List<News>>> fetchNews(String category) async {
+  Future<Either<Failure, List<Article>>> fetchNews(String category) async {
     try {
-      final data = await newsServices.getAllNews(category);
-      final news = data.map((news) => News.fromJson(news)).toList();
+      final data = await newsServices.getAllNews({
+        "apiKey": "d683e15710854dedb49f415209e5dc37",
+        "category": category,
+        "language": "en",
+      });
+      List<Article> news = data.articles;
       return right(news);
     } catch (e) {
       if (e is DioException) {

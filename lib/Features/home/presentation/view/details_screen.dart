@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../data/models/news.dart';
+import '../../data/models/article.dart';
 import 'widgets/details/details_body.dart';
 
 class DetailsScreen extends StatelessWidget {
-  final News news;
+  final Article news;
   const DetailsScreen({
     super.key,
     required this.news,

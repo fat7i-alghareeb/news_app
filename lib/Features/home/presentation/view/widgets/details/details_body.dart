@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../../utils/functions/format_date_string.dart';
 import '../../../../../../utils/text_styles.dart';
-import '../../../../data/models/news.dart';
+import '../../../../data/models/article.dart';
 import '../cached_image.dart';
 import 'source_launcher.dart';
 
@@ -12,7 +12,7 @@ class DetailsBody extends StatelessWidget {
     required this.news,
   });
 
-  final News news;
+  final Article news;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class DetailsBody extends StatelessWidget {
     return Stack(
       children: [
         CachedImage(
-          url: news.image,
+          url: news.urlToImage!,
           boxFit: BoxFit.cover,
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height * 0.5,
@@ -39,7 +39,7 @@ class DetailsBody extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0),
-                    child: Text(news.title, style: Styles.textStyle30),
+                    child: Text(news.title!, style: Styles.textStyle30),
                   ),
                   Chip(
                     side: const BorderSide(
@@ -49,18 +49,18 @@ class DetailsBody extends StatelessWidget {
                     labelStyle: const TextStyle(
                       color: Colors.white,
                     ),
-                    label: Text(formatDateString(news.publishedAt),
+                    label: Text(formatDateString(news.publishedAt!),
                         style: Styles.textStyle20),
                   ),
                   Container(
                     alignment: Alignment.bottomLeft,
                     padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: Text(news.description, style: Styles.textStyle25),
+                    child: Text(news.description!, style: Styles.textStyle25),
                   ),
                   Container(
                     alignment: Alignment.bottomLeft,
                     padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: Text(news.content, style: Styles.textStyle25),
+                    child: Text(news.content!, style: Styles.textStyle25),
                   ),
                   Container(
                     alignment: Alignment.bottomLeft,

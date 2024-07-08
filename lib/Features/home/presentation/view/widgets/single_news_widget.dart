@@ -4,11 +4,11 @@ import '../../../../../utils/constants.dart';
 import '../../../../../utils/functions/format_date_string.dart';
 import '../../../../../utils/router/router_paths.dart';
 import '../../../../../utils/text_styles.dart';
-import '../../../data/models/news.dart';
+import '../../../data/models/article.dart';
 import 'cached_image.dart';
 
 class NewsWidget extends StatelessWidget {
-  final News news;
+  final Article news;
   const NewsWidget({
     super.key,
     required this.news,
@@ -30,7 +30,7 @@ class NewsWidget extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(kBorderRadius),
                 child: CachedImage(
-                  url: news.image,
+                  url: news.urlToImage!,
                   width: 100,
                   height: 100,
                   boxFit: BoxFit.cover,
@@ -42,20 +42,20 @@ class NewsWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Expanded(
-                      child: Text(news.title,
+                      child: Text(news.title!,
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                           style: Styles.textStyle15.copyWith(
                               color: Theme.of(context).colorScheme.secondary)),
                     ),
-                    Text(news.author, style: Styles.textStyle12),
+                    Text(news.author ?? "Known", style: Styles.textStyle12),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: <Widget>[
-                        Text(formatDateString(news.publishedAt),
+                        Text(formatDateString(news.publishedAt!),
                             style: Styles.textStyle10),
                         const Text(' | ', style: Styles.textStyle12),
-                        Text(news.sourceName, style: Styles.textStyle10),
+                        Text(news.source!.name!, style: Styles.textStyle10),
                       ],
                     ),
                   ],

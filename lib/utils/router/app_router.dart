@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../Features/home/data/models/news.dart';
+import 'package:news_app/Features/home/data/models/article.dart';
 import '../../Features/home/data/repo/news_repo_impl.dart';
 import '../../Features/home/presentation/manger/cubit/news_cubit.dart';
 import '../../Features/home/presentation/view/details_screen.dart';
@@ -22,7 +21,7 @@ class AppRouter {
       case KRouter.detailsScreen:
         return MaterialPageRoute(
           builder: (context) {
-            final News news = settings.arguments as News;
+            final Article news = settings.arguments as Article;
             return DetailsScreen(news: news);
           },
         );

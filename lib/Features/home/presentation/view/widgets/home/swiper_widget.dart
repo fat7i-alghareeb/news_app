@@ -4,12 +4,11 @@ import '../../../../../../utils/constants.dart';
 import '../../../../../../utils/functions/format_date_string.dart';
 import '../../../../../../utils/router/router_paths.dart';
 import '../../../../../../utils/text_styles.dart';
+import '../../../../data/models/article.dart';
 import '../cached_image.dart';
 
-import '../../../../data/models/news.dart';
-
 class SwiperWidget extends StatelessWidget {
-  final List<News> news;
+  final List<Article> news;
   const SwiperWidget({
     super.key,
     required this.news,
@@ -35,7 +34,7 @@ class SwiperWidget extends StatelessWidget {
 }
 
 class ImageSliderWidget extends StatelessWidget {
-  final News news;
+  final Article news;
   const ImageSliderWidget({
     super.key,
     required this.news,
@@ -54,7 +53,7 @@ class ImageSliderWidget extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(kBorderRadius),
             ),
-            child: CachedImage(url: news.image, boxFit: BoxFit.cover),
+            child: CachedImage(url: news.urlToImage!, boxFit: BoxFit.cover),
           ),
           Container(
             width: double.infinity,
@@ -89,15 +88,15 @@ class ImageSliderWidget extends StatelessWidget {
                         )),
                   ),
                   const SizedBox(height: 3),
-                  Text(news.title, maxLines: 2, style: Styles.textStyle18),
+                  Text(news.title!, maxLines: 2, style: Styles.textStyle18),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
-                      Text(formatDateString(news.publishedAt),
+                      Text(formatDateString(news.publishedAt!),
                           style: Styles.textStyle15),
                       Text(' | ',
                           style: Styles.textStyle15.copyWith(fontSize: 18)),
-                      Text(news.sourceName, style: Styles.textStyle15),
+                      Text(news.source!.name!, style: Styles.textStyle15),
                     ],
                   ),
                 ],

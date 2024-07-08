@@ -1,12 +1,12 @@
-import '../../../data/models/news.dart';
+import '../../../data/models/article.dart';
 
 sealed class NewsState {}
 
 final class NewsInitial extends NewsState {}
 
 final class NewsLoaded extends NewsState {
-  final List<News> news;
-  final List<News> latestNews;
+  final List<Article> news;
+  final List<Article> latestNews;
   NewsLoaded({required this.news, required this.latestNews});
 }
 

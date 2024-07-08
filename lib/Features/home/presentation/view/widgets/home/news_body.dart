@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-
-import '../../../../data/models/news.dart';
+import '../../../../data/models/article.dart';
 import '../single_news_widget.dart';
 import 'swiper_widget.dart';
 
 class NewsBody extends StatelessWidget {
-  final List<News> news;
-  final List<News> latestNews;
+  final List<Article> news;
+  final List<Article> latestNews;
   const NewsBody({
     super.key,
     required this.news,

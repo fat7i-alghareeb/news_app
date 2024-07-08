@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../../../../../../utils/text_styles.dart';
-import '../../../../data/models/news.dart';
+import '../../../../data/models/article.dart';
 import '../cached_image.dart';
 
 class SourceLauncher extends StatelessWidget {
@@ -11,11 +10,11 @@ class SourceLauncher extends StatelessWidget {
     required this.news,
   });
 
-  final News news;
+  final Article news;
 
   @override
   Widget build(BuildContext context) {
-    final Uri url = Uri.parse(news.url);
+    final Uri url = Uri.parse(news.url!);
     Future<void> urlLauncher() async {
       if (!await launchUrl(
         url,
@@ -40,7 +39,7 @@ class SourceLauncher extends StatelessWidget {
               colorFilter: ColorFilter.mode(
                   Colors.black12.withOpacity(0.3), BlendMode.srcOver),
               child: CachedImage(
-                url: news.image,
+                url: news.urlToImage!,
                 boxFit: BoxFit.cover,
                 height: 300,
                 width: double.infinity,

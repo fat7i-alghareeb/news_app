@@ -1,12 +1,7 @@
+import 'package:news_app/Features/home/data/models/article.dart';
 
-import '../../Features/home/data/models/news.dart';
-
-List<News> removeEmptyFields(List<News> newsList) {
+List<Article> removeEmptyFields(List<Article> newsList) {
   return newsList.where((news) {
-    return news.id.isNotEmpty &&
-        news.image.isNotEmpty &&
-        news.title.isNotEmpty &&
-        news.publishedAt.isNotEmpty &&
-        news.sourceName.isNotEmpty;
+    return news.urlToImage!.isNotEmpty;
   }).toList();
 }
