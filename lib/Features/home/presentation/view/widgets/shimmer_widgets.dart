@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/utils/helper_extensions.dart';
 
 import '../../../../../utils/constants.dart';
 
@@ -87,7 +88,7 @@ class ShimmerWidget extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(borderRadius ?? 0),
-          color: Colors.grey[600]?.withOpacity(0.8),
+          color: context.neutralColor(),
         ),
         height: hight,
         width: width,

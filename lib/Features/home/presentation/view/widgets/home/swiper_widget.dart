@@ -1,5 +1,6 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/utils/helper_extensions.dart';
 import '../../../../../../utils/constants.dart';
 import '../../../../../../utils/functions/format_date_string.dart';
 import '../../../../../../utils/router/router_paths.dart';
@@ -21,6 +22,7 @@ class SwiperWidget extends StatelessWidget {
       child: Swiper(
         viewportFraction: 0.9,
         scale: 0.93,
+        loop: news.length > 2 ? true : false,
         itemCount: news.length,
         duration: 800,
         autoplayDelay: 3000,
@@ -64,7 +66,7 @@ class ImageSliderWidget extends StatelessWidget {
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
                 colors: [
-                  Colors.black.withOpacity(0.85),
+                  context.onPrimaryColor().withOpacity(0.85),
                   Colors.transparent,
                 ],
               ),
@@ -77,13 +79,13 @@ class ImageSliderWidget extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.pink[300],
+                      color: context.accentColor(),
                       borderRadius: BorderRadius.circular(14),
                     ),
                     padding: const EdgeInsets.fromLTRB(8, 3, 8, 7),
                     child: Text('Latest News',
                         style: Styles.textStyle12.copyWith(
-                          color: Colors.white,
+                          color: context.primaryColor(),
                           fontStyle: FontStyle.italic,
                         )),
                   ),

@@ -9,12 +9,6 @@ void main() async {
   setupServiceLocator();
 
   runApp(MyApp());
-  // SystemChrome.setSystemUIOverlayStyle(
-  //   const SystemUiOverlayStyle(
-  //     statusBarColor: Colors.transparent,
-  //     systemNavigationBarColor: Colors.transparent,
-  //   ),
-  // );
 }
 
 class MyApp extends StatelessWidget {
@@ -23,18 +17,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        systemNavigationBarColor: 2 < 4 ? Color(0xFFFFF4F7) : Color(0xff1b2026),
-      ),
-    );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'News',
       onGenerateRoute: _appRouter.generateRoute,
       theme: lightMode,
-      //darkTheme: darkMode,
+      darkTheme: darkMode,
+      themeMode: ThemeMode.dark,
     );
   }
 }

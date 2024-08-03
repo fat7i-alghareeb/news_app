@@ -13,15 +13,24 @@ class NewsCubit extends Cubit<NewsState> {
     emit(NewsLoading());
 
     final results = await newsRepo.fetchNews(category);
-    results.fold((failure) {
-      emit(NewsFailure(message: failure.message));
-    }, (news) {
-      final List<Article> filteredNews = removeEmptyFields(news);
-      _latestNews = filteredNews.sublist(0, 6);
-      filteredNews.removeRange(0, 6);
-      _news = filteredNews;
-      emit(NewsLoaded(news: _news, latestNews: _latestNews));
-    });
+    results.fold(
+      (failure) {
+        emit(NewsFailure(message: failure.message));
+      },
+      (news) {
+        final List<Article> filteredNews = removeEmptyFields(news);
+        _latestNews = filteredNews.sublist(
+          0,
+          (filteredNews.length * .3).toInt(),
+        );
+        filteredNews.removeRange(
+          0,
+          (filteredNews.length * .3).toInt(),
+        );
+        _news = filteredNews;
+        emit(NewsLoaded(news: _news, latestNews: _latestNews));
+      },
+    );
   }
 
   get news => _news;

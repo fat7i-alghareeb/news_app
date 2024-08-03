@@ -19,6 +19,7 @@ class NewsRepoImp implements NewsRepo {
         "apiKey": "d683e15710854dedb49f415209e5dc37",
         "category": category,
         "language": "en",
+        "pageSize": 50,
       });
       List<Article> news = data.articles;
       return right(news);

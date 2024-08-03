@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/utils/helper_extensions.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../../../../utils/text_styles.dart';
 import '../../../../data/models/article.dart';
@@ -28,7 +29,6 @@ class SourceLauncher extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       margin: const EdgeInsets.all(16),
       elevation: 20,
-      color: Colors.black12,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(35)),
       child: InkWell(
         onTap: urlLauncher,
@@ -37,7 +37,7 @@ class SourceLauncher extends StatelessWidget {
           children: [
             ColorFiltered(
               colorFilter: ColorFilter.mode(
-                  Colors.black12.withOpacity(0.3), BlendMode.srcOver),
+                  context.onPrimaryColor().withOpacity(0.3), BlendMode.srcOver),
               child: CachedImage(
                 url: news.urlToImage!,
                 boxFit: BoxFit.cover,
@@ -45,8 +45,10 @@ class SourceLauncher extends StatelessWidget {
                 width: double.infinity,
               ),
             ),
-            Text("News Source",
-                style: Styles.textStyle28.copyWith(color: Colors.grey)),
+            Text(
+              "News Source",
+              style: Styles.textStyle28.copyWith(color: Colors.grey),
+            ),
           ],
         ),
       ),

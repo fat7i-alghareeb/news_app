@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:news_app/utils/helper_extensions.dart';
 
 class CachedImage extends StatelessWidget {
   final String url;
@@ -23,7 +24,7 @@ class CachedImage extends StatelessWidget {
       progressIndicatorBuilder: (context, url, downloadProgress) => Center(
         child: CircularProgressIndicator(
           value: downloadProgress.progress,
-          color: Colors.black,
+          color: context.onPrimaryColor(),
         ),
       ),
       errorWidget: (context, url, error) => const Icon(

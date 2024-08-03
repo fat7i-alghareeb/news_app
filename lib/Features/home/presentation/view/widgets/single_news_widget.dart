@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/utils/helper_extensions.dart';
 
 import '../../../../../utils/constants.dart';
 import '../../../../../utils/functions/format_date_string.dart';
@@ -42,11 +43,14 @@ class NewsWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Expanded(
-                      child: Text(news.title!,
-                          maxLines: 3,
-                          overflow: TextOverflow.ellipsis,
-                          style: Styles.textStyle15.copyWith(
-                              color: Theme.of(context).colorScheme.secondary)),
+                      child: Text(
+                        news.title!,
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
+                        style: Styles.textStyle15.copyWith(
+                          color: context.onPrimaryColor(),
+                        ),
+                      ),
                     ),
                     Text(news.author ?? "Known", style: Styles.textStyle12),
                     Row(

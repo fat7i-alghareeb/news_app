@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/utils/helper_extensions.dart';
 
 import '../../../../../../utils/functions/format_date_string.dart';
 import '../../../../../../utils/text_styles.dart';
@@ -32,7 +33,7 @@ class DetailsBody extends StatelessWidget {
             height: size.height * 1.75,
             width: size.width,
             child: Material(
-              color: Theme.of(context).colorScheme.primary,
+              color: context.primaryColor(),
               borderRadius: BorderRadius.circular(40.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -45,9 +46,9 @@ class DetailsBody extends StatelessWidget {
                     side: const BorderSide(
                       color: Colors.transparent,
                     ),
-                    backgroundColor: Colors.pink[300],
-                    labelStyle: const TextStyle(
-                      color: Colors.white,
+                    backgroundColor: context.accentColor(),
+                    labelStyle: TextStyle(
+                      color: context.primaryColor(),
                     ),
                     label: Text(formatDateString(news.publishedAt!),
                         style: Styles.textStyle20),
@@ -71,11 +72,14 @@ class DetailsBody extends StatelessWidget {
                       side: const BorderSide(
                         color: Colors.transparent,
                       ),
-                      backgroundColor: Colors.pink[300],
+                      backgroundColor: context.accentColor(),
                       labelStyle: Styles.textStyle,
-                      label: Text("Author : ${news.author}",
-                          style: Styles.textStyle15.copyWith(
-                              color: Theme.of(context).colorScheme.primary)),
+                      label: Text(
+                        "Author : ${news.author}",
+                        style: Styles.textStyle15.copyWith(
+                          color: context.primaryColor(),
+                        ),
+                      ),
                     ),
                   ),
                   SourceLauncher(news: news),

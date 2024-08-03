@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:news_app/utils/helper_extensions.dart';
 import '../../../../utils/constants.dart';
 import '../../../../utils/functions/format_date_string.dart';
 import '../../../../utils/text_styles.dart';
@@ -10,6 +12,12 @@ class MainNavigator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        systemNavigationBarColor: context.primaryColor(),
+      ),
+    );
     return DefaultTabController(
       length: categories.length,
       child: Scaffold(
@@ -36,7 +44,7 @@ class MainNavigator extends StatelessWidget {
           bottom: TabBar(
             tabAlignment: TabAlignment.start,
             dividerHeight: 0,
-            labelColor: Theme.of(context).colorScheme.primary,
+            labelColor: context.primaryColor(),
             labelPadding:
                 const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
             indicatorPadding: const EdgeInsets.symmetric(vertical: 5),
@@ -44,8 +52,7 @@ class MainNavigator extends StatelessWidget {
               borderRadius: BorderRadius.circular(25),
               color: const Color(0xFFF06292),
             ),
-            unselectedLabelStyle:
-                TextStyle(color: Theme.of(context).colorScheme.secondary),
+            unselectedLabelStyle: TextStyle(color: context.onPrimaryColor()),
             isScrollable: true,
             tabs: const [
               TabWidget(label: "General"),

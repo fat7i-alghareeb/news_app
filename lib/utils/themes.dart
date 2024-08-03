@@ -1,53 +1,46 @@
 import 'package:flutter/material.dart';
 
+const accentColor = Color(0xFFF06292);
 ///////////////////////////////////////////////////////////////////
-const lightMainColor = Color.fromARGB(255, 255, 244, 247);
-const lightSecondaryColor = Color(0xFF220618);
-const lightThirdlyColor = Color.fromARGB(255, 224, 224, 224);
+const lightMainColor = Color(0xFFFFF4F7);
+const lightOnPrimaryColor = Color(0xFF0F020A);
+const lightNeutralColor = Color(0xFF8D8385);
 ///////////////////////////////////////////////////////////////////
-const darkMainColor = Color(0xFF0F0F0F);
-const darkSecondaryColor = Color(0xFFF2F2F2);
-const darkThirdlyColor = Color(0xFF9E9E9E);
+const darkMainColor = Color(0xFF2f4858);
+const darkOnPrimaryColor = Color(0xFFFFF4F7);
+const darkNeutralColor = Color(0xFF8D8385);
+
 ///////////////////////////////////////////////////////////////////
 ThemeData lightMode = ThemeData(
   brightness: Brightness.light,
   fontFamily: "Font1",
-  appBarTheme: const AppBarTheme(
-    color: lightMainColor,
-    elevation: 0,
-    centerTitle: true,
-    titleTextStyle: TextStyle(
-      color: lightSecondaryColor,
-      fontSize: 20,
-      fontWeight: FontWeight.bold,
-    ),
-  ),
   primaryColor: lightMainColor,
+  drawerTheme: const DrawerThemeData(backgroundColor: lightMainColor),
   scaffoldBackgroundColor: lightMainColor,
+  appBarTheme: const AppBarTheme(
+    backgroundColor: lightMainColor,
+  ),
   colorScheme: const ColorScheme.light(
     primary: lightMainColor,
-    secondary: lightSecondaryColor,
-    tertiary: lightThirdlyColor,
+    onPrimary: lightOnPrimaryColor,
+    tertiary: lightNeutralColor,
+    secondary: accentColor,
   ),
 );
+///////////////////////////////////////////////////////////////
 ThemeData darkMode = ThemeData(
-  //fontFamily: "NewFont",
-  appBarTheme: const AppBarTheme(
-    color: darkMainColor,
-    elevation: 0,
-    centerTitle: true,
-    titleTextStyle: TextStyle(
-      color: darkSecondaryColor,
-      fontSize: 20,
-      fontWeight: FontWeight.bold,
-    ),
-  ),
   brightness: Brightness.dark,
+  fontFamily: "Font1",
+  drawerTheme: const DrawerThemeData(backgroundColor: darkMainColor),
+  appBarTheme: const AppBarTheme(
+    backgroundColor: darkMainColor,
+  ),
   primaryColor: darkMainColor,
   scaffoldBackgroundColor: darkMainColor,
   colorScheme: const ColorScheme.dark(
     primary: darkMainColor,
-    secondary: darkSecondaryColor,
-    tertiary: darkThirdlyColor,
+    onPrimary: darkOnPrimaryColor,
+    tertiary: darkNeutralColor,
+    secondary: accentColor,
   ),
 );

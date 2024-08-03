@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:news_app/utils/helper_extensions.dart';
 
 import '../../../../../../utils/text_styles.dart';
 
@@ -13,25 +14,11 @@ class ShowBottomSheetButton extends StatelessWidget {
     return IconButton(
       onPressed: () => showModalBottomSheet(
         context: context,
+        backgroundColor: context.primaryColor(),
+        showDragHandle: true,
         builder: (context) {
-          return Scaffold(
-            appBar: AppBar(
-              automaticallyImplyLeading: false,
-              title: InkWell(
-                onTap: () {
-                  Navigator.pop(context);
-                  HapticFeedback.heavyImpact();
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Image.asset(
-                    "images/expand-button.png",
-                    height: 23,
-                  ),
-                ),
-              ),
-            ),
-            body: const SizedBox(
+          return const Scaffold(
+            body: SizedBox(
                 height: double.infinity,
                 width: double.infinity,
                 child: Center(
