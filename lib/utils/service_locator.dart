@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:news_app/Features/home/data/data%20source/local.dart';
+import 'package:news_app/Features/home/data/data%20source/remote.dart';
 import '../Features/home/data/repo/news_repo_impl.dart';
 import 'services/news_services.dart';
 
@@ -9,7 +11,10 @@ void setupServiceLocator() {
   getIt.registerSingleton<NewsServices>(NewsServices(createAndSetupDio()));
   getIt.registerSingleton<NewsRepoImp>(
     NewsRepoImp(
-      newsServices: getIt.get<NewsServices>(),
+      localData: LocalData(),
+      remoteData: RemoteData(
+        newsServices: getIt<NewsServices>(),
+      ),
     ),
   );
 }

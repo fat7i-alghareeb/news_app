@@ -13,3 +13,5 @@ final List<Widget> categories = [
 ];
 
 const double kBorderRadius = 8;
+const String kArticlesBox = "articles";
+const String kUser = "user";
