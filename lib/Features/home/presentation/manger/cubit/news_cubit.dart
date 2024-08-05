@@ -9,7 +9,7 @@ class NewsCubit extends Cubit<NewsState> {
   NewsCubit(this.newsRepo) : super(NewsInitial());
   List<Article> _news = [];
   List<Article> _latestNews = [];
-  void fetchNews(String category) async {
+  Future<void> fetchNews(String category) async {
     emit(NewsLoading());
 
     final results = await newsRepo.fetchNews(category);

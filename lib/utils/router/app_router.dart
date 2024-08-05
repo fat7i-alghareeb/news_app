@@ -4,7 +4,7 @@ import 'package:news_app/Features/home/data/models/article.dart';
 import '../../Features/home/data/repo/news_repo_impl.dart';
 import '../../Features/home/presentation/manger/cubit/news_cubit.dart';
 import '../../Features/home/presentation/view/details_screen.dart';
-import '../../Features/home/presentation/view/navigator.dart';
+import '../../Features/home/presentation/view/main_navigator.dart';
 import '../service_locator.dart';
 import 'router_paths.dart';
 
